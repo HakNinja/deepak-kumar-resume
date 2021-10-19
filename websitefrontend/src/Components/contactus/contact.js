@@ -27,7 +27,7 @@ function ContactUs() {
         const {firstname,lastname,contactno,email,message}=user
         if (user){
             if(firstname && lastname && contactno && email && message ) {
-                axios.post("http://localhost:4000/contactus",user).then(res=>{
+                axios.post("https://deepak-kumar-resume.herokuapp.com/contactus",user).then(res=>{
                     toast.info(res.data.alertmsg,{
                         position:"top-center"
                     })
