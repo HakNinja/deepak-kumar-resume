@@ -110,7 +110,7 @@ function Projectcontact() {
         // projecttype, note, projectinfo, altcontactno
         if (projectqueue){
             if(firstname && lastname && contactno && email && briefinfo && country ) {
-                axios.post("https://deepak-kumar-resume.herokuapp.com/projectqueue",projectqueue).then(res=>{
+                axios.post(process.env.webHost+"projectqueue",projectqueue).then(res=>{
                     toast.info(res.data.alertmsg,{
                         position:"top-center"
                     })
