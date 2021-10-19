@@ -30,22 +30,22 @@ const config = {
         options: [
           {
             text: "CGI Apps",
-            url: "http://localhost:3000/#main-container-Wrapper-About-Portfolio",
+            url: "#main-container-Wrapper-About-Portfolio",
             id: 1,
           },
           {
             text: "Web Apps",
-            url: "http://localhost:3000/#main-container-Wrapper-About-Portfolio",
+            url: "#main-container-Wrapper-About-Portfolio",
             id: 2,
           },
           {
             text: "Android Application",
-            url: "http://localhost:3000/#main-container-Wrapper-About-Portfolio",
+            url: "#main-container-Wrapper-About-Portfolio",
             id: 3,
           },
           {
             text: "Python Project",
-            url: "http://localhost:3000/#main-container-Wrapper-About-Portfolio",
+            url: "#main-container-Wrapper-About-Portfolio",
             id: 4,
           },
         ],
