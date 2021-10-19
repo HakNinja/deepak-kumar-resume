@@ -183,7 +183,7 @@ app.post("/contactus", (req, res) => {
         email: email,
         message:message
     })
-
+    console.log("mail sending")
     sendEmailfun(email, firstname+' '+lastname, contactno,message)
     sendEmailfunadmin(email,firstname+' '+lastname, contactno,message)
     contactperson.save(err => {
@@ -211,7 +211,7 @@ app.post("/projectqueue", (req, res) => {
         country:country,
         projecttype:projecttype
     })
-
+    console.log("mail sending")
     sendEmailfun(email, firstname+' '+lastname, contactno,"Some Project Query")
     sendEmailfunadmin(email,firstname+' '+lastname, contactno,"Some Project Query")
     projectqueueperson.save(err => {
