@@ -25,6 +25,11 @@ function ContactUs() {
 
     const submitform=()=>{        
         const {firstname,lastname,contactno,email,message}=user
+        document.getElementById('fname').value='';  
+        document.getElementById('lname').value='';  
+        document.getElementById('contact').value='';
+        document.getElementById('email').value='';  
+        document.getElementById('message').value='';
         if (user){
             if(firstname && lastname && contactno && email && message ) {
                 // axios.post("http://localhost:5000/contactus",user).then(res=>{
