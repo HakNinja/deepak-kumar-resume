@@ -25,30 +25,29 @@ function ContactUs() {
 
     const submitform=()=>{        
         const {firstname,lastname,contactno,email,message}=user
-        const sending_user = user
-        document.getElementById('fname').value='';    user.firstname=''
-        document.getElementById('lname').value='';    user.lastname=''
-        document.getElementById('contact').value='';  user.contactno=''
-        document.getElementById('email').value='';    user.email=''
-        document.getElementById('message').value='';  user.message=''
+        if (user){
             if(firstname && lastname && contactno && email && message ) {
                 // axios.post("http://localhost:5000/contactus",user).then(res=>{
-                axios.post("https://deepak-kumar-resume.herokuapp.com/contactus",sending_user).then(res=>{
+                axios.post("https://deepak-kumar-resume.herokuapp.com/contactus",user).then(res=>{
+                    
+                    document.getElementById('fname').value='';     user.firstname=''
+                    document.getElementById('lname').value='';     user.lastname=''
+                    document.getElementById('contact').value='';   user.contactno=''
+                    document.getElementById('email').value='';     user.email=''
+                    document.getElementById('message').value='';   user.message=''
+                
                     toast.info(res.data.alertmsg,{
                         position:"top-center"
                     })
-                    // document.getElementById('fname').value='';     user.firstname=''
-                    // document.getElementById('lname').value='';     user.lastname=''
-                    // document.getElementById('contact').value='';   user.contactno=''
-                    // document.getElementById('email').value='';     user.email=''
-                    // document.getElementById('message').value='';   user.message=''
+
                     // window.location.reload()
                 })
             } else {
                 toast.warn("Please provide all the mentioned entries to contact us.",{
                     position:"top-center"
                 })
-            }
+            }   
+        }
     }
    
     return (
