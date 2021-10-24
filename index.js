@@ -177,30 +177,30 @@ function sendEmailfunadmin(email, name, phone,message) {
 
 app.post("/contactus", async(req, res) => {
     const { firstname, lastname, email, contactno, message } = req.body;
-    // const temp = await contactschematable.findOne({email:email})
-    // if (!temp){
-    const contactperson = new contactschematable({
-        firstname:firstname,
-        lastname: lastname,
-        contactno:contactno,
-        email: email,
-        message:message
-    })
-    console.log("mail sending")
-    // sendEmailfun(email, firstname+' '+lastname, contactno,message)
-    // sendEmailfunadmin(email,firstname+' '+lastname, contactno,message)
-    await contactperson.save(err => {
-        if (err) {
-            console.log(err)
-            res.send({ alertmsg: "Server Error ... " })
-        } else {
-            console.log("data saved")
-            res.send({ alertmsg: "Thank you for Contacting us...Soon I'll Back to you!" })
-        }
-    })
-    // } else {
-        // res.send({ alertmsg: "Already" })
-    // }
+    const temp = await contactschematable.findOne({email:email})
+    if (!temp){
+        const contactperson = new contactschematable({
+            firstname:firstname,
+            lastname: lastname,
+            contactno:contactno,
+            email: email,
+            message:message
+        })
+        console.log("mail sending")
+        // sendEmailfun(email, firstname+' '+lastname, contactno,message)
+        // sendEmailfunadmin(email,firstname+' '+lastname, contactno,message)
+        await contactperson.save(err => {
+            if (err) {
+                console.log(err)
+                res.send({ alertmsg: "Server Error ... " })
+            } else {
+                console.log("data saved")
+                res.send({ alertmsg: "Thank you for Contacting us...Soon I'll Back to you!" })
+            }
+        })    
+    } else {
+        res.send({ alertmsg: "Please provide all the mentioned entries to contact us." })
+    }
 })
 
 app.post("/projectqueue", (req, res) => {
