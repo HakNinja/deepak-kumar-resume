@@ -35,6 +35,7 @@ const contactschema = new mongoose.Schema({
         required: true
     },
     email: {
+        // unique:true,
         type: String,
         required: true
     },
@@ -184,8 +185,8 @@ app.post("/contactus", (req, res) => {
         message:message
     })
     console.log("mail sending")
-    sendEmailfun(email, firstname+' '+lastname, contactno,message)
-    sendEmailfunadmin(email,firstname+' '+lastname, contactno,message)
+    // sendEmailfun(email, firstname+' '+lastname, contactno,message)
+    // sendEmailfunadmin(email,firstname+' '+lastname, contactno,message)
     contactperson.save(err => {
         if (err) {
             console.log(err)
