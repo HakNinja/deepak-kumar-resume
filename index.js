@@ -177,8 +177,8 @@ function sendEmailfunadmin(email, name, phone,message) {
 
 app.post("/contactus", async(req, res) => {
     const { firstname, lastname, email, contactno, message } = req.body;
-    const temp = await contactschematable.findOne({email:email})
-    if (!temp){
+    // const temp = await contactschematable.findOne({email:email})
+    // if (!temp){
     const contactperson = new contactschematable({
         firstname:firstname,
         lastname: lastname,
@@ -198,9 +198,9 @@ app.post("/contactus", async(req, res) => {
             res.send({ alertmsg: "Thank you for Contacting us...Soon I'll Back to you!" })
         }
     })
-    } else {
-        res.send({ alertmsg: "Already" })
-    }
+    // } else {
+        // res.send({ alertmsg: "Already" })
+    // }
 })
 
 app.post("/projectqueue", (req, res) => {

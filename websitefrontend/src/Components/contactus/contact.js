@@ -39,6 +39,7 @@ function ContactUs() {
                     toast.info(res.data.alertmsg,{
                         position:"top-center"
                     })
+                    alert("hello")
 
                     // window.location.reload()
                 })
