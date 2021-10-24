@@ -175,7 +175,7 @@ function sendEmailfunadmin(email, name, phone,message) {
     })
 }
 
-app.post("/contactus", (req, res) => {
+app.post("/contactus", async(req, res) => {
     const { firstname, lastname, email, contactno, message } = req.body;
     const contactperson = new contactschematable({
         firstname:firstname,
@@ -187,7 +187,7 @@ app.post("/contactus", (req, res) => {
     console.log("mail sending")
     // sendEmailfun(email, firstname+' '+lastname, contactno,message)
     // sendEmailfunadmin(email,firstname+' '+lastname, contactno,message)
-    contactperson.save(err => {
+    await contactperson.save(err => {
         if (err) {
             console.log(err)
             res.send({ alertmsg: "Server Error ... " })
