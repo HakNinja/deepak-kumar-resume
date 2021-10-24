@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 dotenv.config({ path : './config.env' })
 
-mongoose.connect(process.env.DBAtlas, {
+mongoose.connect(process.env.DBlocal, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
