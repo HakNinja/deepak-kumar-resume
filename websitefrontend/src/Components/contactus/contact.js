@@ -27,8 +27,8 @@ function ContactUs() {
         const {firstname,lastname,contactno,email,message}=user
         if (user){
             if(firstname && lastname && contactno && email && message ) {
-                axios.post("http://localhost:5000/contactus",user).then(res=>{
-                // axios.post("https://deepak-kumar-resume.herokuapp.com/contactus",user).then(res=>{
+                // axios.post("http://localhost:5000/contactus",user).then(res=>{
+                axios.post("https://deepak-kumar-resume.herokuapp.com/contactus",user).then(res=>{
                     
                     document.getElementById('fname').value='';     user.firstname=''
                     document.getElementById('lname').value='';     user.lastname=''

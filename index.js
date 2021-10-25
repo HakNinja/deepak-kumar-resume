@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 dotenv.config({ path : './config.env' })
 
-mongoose.connect(process.env.DBlocal, {
+mongoose.connect(process.env.DBAtlas, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -39,11 +39,22 @@ const contactschema = new mongoose.Schema({
         type: String,
         required: true
     },
-    message: {
-        type: String,
-        required: true
-    }
-})
+    messages: [{
+        // type: "object",
+        // required: true,
+        message: {
+            type: String,
+            required: true
+        },        
+        datetime: {
+            type: String,
+            required: true
+        }
+    }]
+}
+// ,  {timestamps:true}
+)
+
 const contactschematable = new mongoose.model("contactus", contactschema);
 
 const projectqueueschema = new mongoose.Schema({
@@ -178,13 +189,38 @@ function sendEmailfunadmin(email, name, phone,message) {
 app.post("/contactus", async(req, res) => {
     const { firstname, lastname, email, contactno, message } = req.body;
     const temp = await contactschematable.findOne({email:email})
-    if (!temp){
+    if (temp){
+        //check date
+        var date1 = new Date(temp.messages[temp.messages.length-1]["datetime"])
+        date1 = date1.getTime()+86400000
+        var date2 = new Date(Date())
+        if (date1<date2){        
+            temp.messages = temp.messages.concat({ 
+                message:message,
+                datetime: Date().toLocaleString()
+            }) 
+            await temp.save(err => {
+                if (err) {
+                    console.log(err)
+                    res.send({ alertmsg: "Server Error ... " })
+                } else {
+                    console.log("data saved")
+                    res.send({ alertmsg: "Thank you for Contacting us...Soon I'll Back to you!" })
+                }
+            })
+        }  else {
+            res.send({ alertmsg: "Please contact me after 24 hour, as your previous query is on queue..." })
+        }
+    } else {    
         const contactperson = new contactschematable({
             firstname:firstname,
             lastname: lastname,
             contactno:contactno,
             email: email,
-            message:message
+            messages:{ 
+                message:message,
+                datetime: Date().toLocaleString()
+            }
         })
         console.log("mail sending")
         // sendEmailfun(email, firstname+' '+lastname, contactno,message)
@@ -198,8 +234,7 @@ app.post("/contactus", async(req, res) => {
                 res.send({ alertmsg: "Thank you for Contacting us...Soon I'll Back to you!" })
             }
         })    
-    } else {
-        res.send({ alertmsg: "Please provide all the mentioned entries to contact us." })
+
     }
 })
 
