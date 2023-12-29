@@ -2,7 +2,7 @@ import React from 'react'
 import './homepage.css';
 import adminImage from "../../Images/deepak.png"
 import About from './about';
-import Resume from '../../resume/Deepak_Kumar_resume.pdf'
+// import Resume from '../../resume/Deepak_Kumar_resume.pdf'
 import Resumepage from './resume';
 import Hobbiespage from './hobbies';
 import Servicespage from './services';
@@ -34,9 +34,17 @@ function Homepage() {
                         </div>
                     </div>
                     <div className="buttons-Wrapper">
-                        <button className="download-Resume-Button" > <a href={Resume} download="Deepak-Kumar-Resume" >downlaod resume</a></button>
-                        <button className="view-Portfolio-Button">view portfolio</button>
-                    </div>
+                       <button className="download-Resume-Button" >
+                        {
+                            //<a href={Resume} download="Deepak-Kumar-Resume" >download resume</a>
+                        }
+                        </button>
+                       <button className="view-Portfolio-Button">
+                        {
+                        //view portfolio
+                        }
+                        </button>
+                    </div> 
 
 <About/>
 <Resumepage/>

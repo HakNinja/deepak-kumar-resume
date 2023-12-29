@@ -104,8 +104,6 @@ function ContactUs() {
                 <div className="contactus-address-div-parent-wrapper">
                 <p className="adress-para-head">Reach us</p>
                 <p className="adress-description">Feel free to contact us at any time.</p>
-                <p className="address-contactus-para"><i className="fas fa-map-marker-alt"  /> Address:  <span> Damuadhuga-Haldwani, Uttarkhand, 263139</span></p>
-                <button className="locate-me-button"  ><a href="https://goo.gl/maps/d8AvUhGru3tRdrkV7" target='_blank' rel="noreferrer"> <i className="fas fa-map-marked-alt"/>Click to Locate</a></button>
                 <p className="phoneno-address-para"><a href="tel:+919368736361"><i className="fas fa-mobile-alt"/>+919368736361</a></p>
                 <p className="Email-address-para"><a href="mailto:deepakkumararya1812@gmail.com "><i className="fas fa-envelope"/>deepakkumararya1812@gmail.com </a></p>
                 </div>

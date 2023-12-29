@@ -132,6 +132,7 @@ transform: translateY(300%);
     font-size: 1.1rem;
     margin: 0rem .5rem .2rem 0rem;
     font-family: 'Ubuntu',sans-serif;
+    text-decoration: underline;
     font-weight:500;
 }
 
@@ -140,7 +141,7 @@ transform: translateY(300%);
     font-family: 'ubuntu',sans-serif;
     font-weight: 600;
     width: 70%;
-    color:rgb(163, 163, 163);
+    color:rgb(0, 0, 0);
 }
 .details-div-wrapper-end-horizontalline{
     width: 75%;
