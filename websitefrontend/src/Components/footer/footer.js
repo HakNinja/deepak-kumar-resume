@@ -23,14 +23,14 @@ function Footer() {
             <div className="footer-name-heading"><a href="/"> @ Deepak Kumar</a></div>
 
             <div className="pageMid-horizontal-Line-Footer"></div>
-
-<div className="footer-Reserved-rights-and-design">
+{
+/* <div className="footer-Reserved-rights-and-design">
     <p className="reserve-Rights"> Deepak Kumar <i className="far fa-copyright"></i> All rights are Reserved 2021 </p>
     <p className="Designed-and-mainted">  Website Desgined & Maintained By: The StartUp Designers</p>
     <p className="contactusat-footer"><i className="fas fa-phone-alt"></i><a href="tel:+9184330214414">+918433024414,</a>  <a href="tel:+919368736361">+919368736361</a> </p>
     <p className="emailusat-footer"><i className="far fa-envelope"></i><a href="mailto:officialcharanjeetsinghsidhu@gmail.com">officialcharanjeetsinghsidhu@gmail.com</a> </p>
-</div>
-
+</div> */
+}
         </div>
         </>
     )
